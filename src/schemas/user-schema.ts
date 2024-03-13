@@ -2,7 +2,7 @@ import { pgTable, timestamp, uuid, varchar } from "drizzle-orm/pg-core";
 import { createInsertSchema, createSelectSchema } from "drizzle-zod";
 import { z } from "zod";
 
-const user = pgTable("user", {
+export const user = pgTable("user", {
   id: uuid("id").defaultRandom().notNull().primaryKey(),
   name: varchar("name", { length: 256 }).notNull(),
   username: varchar("username", { length: 256 }).notNull().unique(),

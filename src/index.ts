@@ -1,6 +1,11 @@
 import { serve } from "@hono/node-server";
 import app from "./app";
 
-console.log("running...");
+const port = Number(process.env.PORT) || 3000;
 
-serve(app);
+console.log("running on port:", port);
+
+serve({
+  fetch: app.fetch,
+  port,
+});

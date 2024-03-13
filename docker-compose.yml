@@ -1,0 +1,11 @@
+services:
+  api:
+    build:
+      context: .
+    volumes:
+      - ./:/usr/src/app
+    container_name: payments-api
+    ports:
+      - 3000:3000
+    command: npm run dev
+

@@ -9,4 +9,6 @@ const hello: Handler = (c) => {
 
 app.get("/", hello);
 
+console.log("running...");
+
 serve(app);

@@ -1,17 +1,17 @@
-import { UserRequest } from "@/models";
+import type { UserRequest } from "@/models";
 import {
   createUserRepository,
   fetchUserByEmailRepository,
   fetchUserByUsernameRepository,
 } from "@/repositories/user";
-import { InsertUser, SelectUser } from "@/schemas";
+import type { InsertUser, SelectUser } from "@/schemas";
 import { generateHash, generateSalt } from "@/utils/hash";
-import { ServiceReturn } from "@/utils/types";
+import type { RepositoryRetrun, ServiceReturn } from "@/utils/types";
 
 export async function createUserService(
-  data: UserRequest
+  data: UserRequest,
 ): Promise<ServiceReturn<SelectUser>> {
-  let found;
+  let found: RepositoryRetrun<SelectUser>;
 
   found = await fetchUserByEmailRepository(data.email);
 

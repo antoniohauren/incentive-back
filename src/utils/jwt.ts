@@ -1,6 +1,6 @@
 import "dotenv/config";
 import { sign } from "hono/jwt";
-import { JwtPayload } from "./types";
+import type { JwtPayload } from "./types";
 
 export async function generateJwtToken(payload: JwtPayload) {
   const secret = process.env.JWT_SECRET;

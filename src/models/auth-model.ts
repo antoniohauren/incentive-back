@@ -1,4 +1,4 @@
-import { z } from "zod";
+import type { z } from "zod";
 import { userRequestSchema } from "./user-model";
 
 export const signInSchema = userRequestSchema.pick({

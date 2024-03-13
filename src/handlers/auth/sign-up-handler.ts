@@ -1,6 +1,6 @@
-import { SignUpRequest } from "@/models/auth-model";
+import type { SignUpRequest } from "@/models/auth-model";
 import { signUpService } from "@/services/auth/sign-up-service";
-import { Handler } from "hono";
+import type { Handler } from "hono";
 
 export const signUpHandler: Handler = async (c) => {
   const body = await c.req.json<SignUpRequest>();

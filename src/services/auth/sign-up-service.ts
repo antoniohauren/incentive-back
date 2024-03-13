@@ -1,10 +1,10 @@
-import { SignUpRequest } from "@/models/auth-model";
+import type { SignUpRequest } from "@/models/auth-model";
 import { generateJwtToken } from "@/utils/jwt";
-import { JwtPayload, ServiceReturn } from "@/utils/types";
+import type { JwtPayload, ServiceReturn } from "@/utils/types";
 import { createUserService } from "../user";
 
 export async function signUpService(
-  data: SignUpRequest
+  data: SignUpRequest,
 ): Promise<ServiceReturn> {
   const createUserReturn = await createUserService(data);
 

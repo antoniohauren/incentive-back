@@ -1,5 +1,5 @@
 import { getUserService } from "@/services/user";
-import { Handler } from "hono";
+import type { Handler } from "hono";
 
 export const getUserHandler: Handler = async (c) => {
   const id = c.req.param("id");

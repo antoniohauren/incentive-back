@@ -1,4 +1,4 @@
-export type RepositoryRetrun<T = any> = {
+export type RepositoryRetrun<T = unknown> = {
   success: boolean;
   data?: T[];
   error?: string;

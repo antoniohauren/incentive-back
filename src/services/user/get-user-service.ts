@@ -1,9 +1,9 @@
-import { UserResponse } from "@/models";
+import type { UserResponse } from "@/models";
 import { fetchUserByIdRepository } from "@/repositories/user";
-import { ServiceReturn } from "@/utils/types";
+import type { ServiceReturn } from "@/utils/types";
 
 export async function getUserService(
-  id: string
+  id: string,
 ): Promise<ServiceReturn<UserResponse>> {
   const found = await fetchUserByIdRepository(id);
 

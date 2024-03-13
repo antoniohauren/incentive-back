@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "tsx -r dotenv/config --watch src/index.ts",
     "build": "tsc",
+    "lint:check": "biome check ./src/",
+    "lint:apply": "biome check --apply ./src/",
     "db:generate": "drizzle-kit generate:pg --config=drizzle.config.ts",
     "db:migrate": "tsx -r dotenv/config src/drizzle/migrate.ts",
     "db:studio": "drizzle-kit studio"

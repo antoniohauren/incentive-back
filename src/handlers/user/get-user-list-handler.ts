@@ -1,5 +1,5 @@
 import { getUserListService } from "@/services/user";
-import { Handler } from "hono";
+import type { Handler } from "hono";
 
 export const getUserListHandler: Handler = async (c) => {
   const { success, data, message } = await getUserListService();

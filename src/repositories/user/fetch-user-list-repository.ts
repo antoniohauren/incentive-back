@@ -1,6 +1,6 @@
 import { db } from "@/drizzle";
-import { SelectUser, user } from "@/schemas";
-import { RepositoryRetrun } from "@/utils/types";
+import { type SelectUser, user } from "@/schemas";
+import type { RepositoryRetrun } from "@/utils/types";
 
 export async function fetchUserListRepository(): Promise<
   RepositoryRetrun<SelectUser>

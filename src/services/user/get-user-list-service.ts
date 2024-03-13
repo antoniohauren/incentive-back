@@ -1,6 +1,6 @@
-import { UserListResponse } from "@/models";
+import type { UserListResponse } from "@/models";
 import { fetchUserListRepository } from "@/repositories/user";
-import { ServiceReturn } from "@/utils/types";
+import type { ServiceReturn } from "@/utils/types";
 
 export async function getUserListService(): Promise<
   ServiceReturn<UserListResponse>

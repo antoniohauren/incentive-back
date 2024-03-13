@@ -1,11 +1,11 @@
-import { SignInRequest } from "@/models/auth-model";
+import type { SignInRequest } from "@/models/auth-model";
 import { fetchUserByUsernameRepository } from "@/repositories/user";
 import { generateHash } from "@/utils/hash";
 import { generateJwtToken } from "@/utils/jwt";
-import { JwtPayload, ServiceReturn } from "@/utils/types";
+import type { JwtPayload, ServiceReturn } from "@/utils/types";
 
 export async function signInService(
-  data: SignInRequest
+  data: SignInRequest,
 ): Promise<ServiceReturn> {
   const found = await fetchUserByUsernameRepository(data.username);
 

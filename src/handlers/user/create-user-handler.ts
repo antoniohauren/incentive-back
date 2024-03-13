@@ -1,6 +1,6 @@
-import { UserRequest } from "@/models";
+import type { UserRequest } from "@/models";
 import { createUserService } from "@/services/user";
-import { Handler } from "hono";
+import type { Handler } from "hono";
 
 const createUserHandler: Handler = async (c) => {
   const body = await c.req.json<UserRequest>();

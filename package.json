@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.6.1",
+    "@types/node": "20.11.27",
     "@types/pg": "8.11.2",
     "dotenv": "16.4.5",
     "drizzle-kit": "0.20.14",

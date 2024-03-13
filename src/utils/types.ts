@@ -9,3 +9,10 @@ export type ServiceReturn<T = unknown> = {
   message?: string;
   data?: T;
 };
+
+export type JwtPayload = {
+  id: string;
+  name: string;
+  username: string;
+  email: string;
+};

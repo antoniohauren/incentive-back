@@ -1,9 +1,10 @@
+import { UserRequest } from "@/models";
 import {
   createUserRepository,
   fetchUserByEmailRepository,
   fetchUserByUsernameRepository,
 } from "@/repositories/user";
-import { InsertUser, UserRequest } from "@/schemas";
+import { InsertUser } from "@/schemas";
 import { generateHash, generateSalt } from "@/utils/hash";
 import { ServiceReturn } from "@/utils/types";
 

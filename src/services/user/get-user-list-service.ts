@@ -1,5 +1,5 @@
+import { UserListResponse } from "@/models";
 import { fetchUserListRepository } from "@/repositories/user";
-import { UserListResponse } from "@/schemas";
 import { ServiceReturn } from "@/utils/types";
 
 export async function getUserListService(): Promise<

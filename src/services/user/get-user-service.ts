@@ -1,5 +1,5 @@
+import { UserResponse } from "@/models";
 import { fetchUserByIdRepository } from "@/repositories/user";
-import { UserResponse } from "@/schemas";
 import { ServiceReturn } from "@/utils/types";
 
 export async function getUserService(

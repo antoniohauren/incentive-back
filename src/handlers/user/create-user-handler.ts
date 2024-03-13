@@ -1,4 +1,4 @@
-import { UserRequest } from "@/schemas";
+import { UserRequest } from "@/models";
 import { createUserService } from "@/services/user";
 import { Handler } from "hono";
 

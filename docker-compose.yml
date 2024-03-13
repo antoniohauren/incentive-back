@@ -6,15 +6,17 @@ services:
       - ./:/usr/src/app
     env_file:
       - ./.env
+    environment:
+      - DB_URL=postgres://postgres:root@database:5432/postgres
+      - DB_HOST=database
     container_name: payments-api
     ports:
       - 3000:3000
     command: npm run dev
-  db:
+  database:
     image: postgres:latest
     environment:
       POSTGRES_PASSWORD: "root"
     container_name: payments-db
     ports:
       - "5432:5432"
-

@@ -1,10 +1,12 @@
 import { serve } from "@hono/node-server";
-import { Hono } from "hono";
+import { Handler, Hono } from "hono";
 
 const app = new Hono();
 
-app.get("/", (c) => {
+const hello: Handler = (c) => {
   return c.text("Hello hono!");
-});
+};
+
+app.get("/", hello);
 
 serve(app);

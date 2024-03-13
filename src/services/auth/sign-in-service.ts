@@ -41,8 +41,6 @@ export async function signInService(
 
   return {
     success: true,
-    data: {
-      token,
-    },
+    data: { token },
   };
 }

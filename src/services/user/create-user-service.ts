@@ -4,13 +4,13 @@ import {
   fetchUserByEmailRepository,
   fetchUserByUsernameRepository,
 } from "@/repositories/user";
-import { InsertUser } from "@/schemas";
+import { InsertUser, SelectUser } from "@/schemas";
 import { generateHash, generateSalt } from "@/utils/hash";
 import { ServiceReturn } from "@/utils/types";
 
 export async function createUserService(
   data: UserRequest
-): Promise<ServiceReturn> {
+): Promise<ServiceReturn<SelectUser>> {
   let found;
 
   found = await fetchUserByEmailRepository(data.email);
@@ -38,9 +38,8 @@ export async function createUserService(
 
   const user = await createUserRepository(dto);
 
-  if (!user.success) {
+  if (!user.success || !user.data || !user.data.length) {
     return { success: false, message: "FAILED_TO_CREATE_USER" };
   }
-
-  return { success: user.success, message: "USER_CREATED" };
+  return { success: user.success, message: "USER_CREATED", data: user.data[0] };
 }

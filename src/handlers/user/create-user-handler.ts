@@ -5,13 +5,13 @@ import { Handler } from "hono";
 const createUserHandler: Handler = async (c) => {
   const body = await c.req.json<InsertUser>();
 
-  const success = await createUserService(body);
+  const { success, message } = await createUserService(body);
 
   if (success) {
-    return c.json({ success }, 201);
+    return c.json({ success, message }, 201);
   }
 
-  return c.json({ success }, 400);
+  return c.json({ success, message }, 400);
 };
 
 export { createUserHandler };

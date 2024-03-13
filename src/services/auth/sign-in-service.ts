@@ -1,5 +1,6 @@
 import { SignInRequest } from "@/models/auth-model";
 import { fetchUserByUsernameRepository } from "@/repositories/user";
+import { generateHash } from "@/utils/hash";
 import { generateJwtToken } from "@/utils/jwt";
 import { JwtPayload, ServiceReturn } from "@/utils/types";
 
@@ -7,8 +8,6 @@ export async function signInService(
   data: SignInRequest
 ): Promise<ServiceReturn> {
   const found = await fetchUserByUsernameRepository(data.username);
-
-  console.log(found);
 
   if (!found.success || !found.data || !found.data?.length) {
     return {
@@ -18,6 +17,18 @@ export async function signInService(
   }
 
   const user = found.data[0];
+
+  const userPwHash = user.password_hash;
+  const salt = user.salt;
+
+  const pwHash = generateHash(data.password, salt);
+
+  if (userPwHash !== pwHash) {
+    return {
+      success: false,
+      message: "INVALID_CREDENTIALS",
+    };
+  }
 
   const payload: JwtPayload = {
     email: user.email,

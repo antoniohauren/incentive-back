@@ -1,10 +1,10 @@
 import { db } from "@/drizzle";
 import { InsertUser, SelectUser, user } from "@/schemas";
-import { CreateReturn } from "@/utils/types";
+import { RepositoryRetrun } from "@/utils/types";
 
 export async function createUserRepository(
   dto: InsertUser
-): Promise<CreateReturn<SelectUser>> {
+): Promise<RepositoryRetrun<SelectUser>> {
   try {
     const data = await db.insert(user).values(dto).returning();
 

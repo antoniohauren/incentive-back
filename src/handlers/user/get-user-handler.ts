@@ -1,9 +1,14 @@
+import { getUserService } from "@/services/user";
 import { Handler } from "hono";
 
-const getUserHandler: Handler = (c) => {
+export const getUserHandler: Handler = async (c) => {
   const id = c.req.param("id");
 
-  return c.text(`get-user ${id}`);
-};
+  const { success, data, message } = await getUserService(id);
 
-export { getUserHandler };
+  if (success) {
+    return c.json({ success, data });
+  }
+
+  return c.json({ success, message }, 400);
+};

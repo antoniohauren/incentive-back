@@ -1,5 +1,5 @@
 import { UserRequest } from "@/schemas";
-import { createUserService } from "@/services";
+import { createUserService } from "@/services/user";
 import { Handler } from "hono";
 
 const createUserHandler: Handler = async (c) => {

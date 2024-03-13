@@ -1,11 +1,11 @@
 import { db } from "@/drizzle";
 import { SelectUser, user } from "@/schemas";
-import { CreateReturn } from "@/utils/types";
+import { RepositoryRetrun } from "@/utils/types";
 import { eq } from "drizzle-orm";
 
 export async function fetchUserByUsernameRepository(
   username: string
-): Promise<CreateReturn<SelectUser>> {
+): Promise<RepositoryRetrun<SelectUser>> {
   try {
     const data = await db
       .select()

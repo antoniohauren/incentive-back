@@ -34,4 +34,5 @@ export const userResponseSchema = selectUserSchema.omit({
 });
 
 export type UserRequest = z.infer<typeof userRequestSchema>;
-export type userResponse = z.infer<typeof userResponseSchema>;
+export type UserResponse = z.infer<typeof userResponseSchema>;
+export type UserListResponse = UserResponse[];

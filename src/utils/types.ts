@@ -1,4 +1,4 @@
-export type CreateReturn<T = any> = {
+export type RepositoryRetrun<T = any> = {
   success: boolean;
   data?: T[];
   error?: string;
@@ -6,6 +6,6 @@ export type CreateReturn<T = any> = {
 
 export type ServiceReturn<T = unknown> = {
   success: boolean;
-  message: string;
-  data?: T[];
+  message?: string;
+  data?: T;
 };

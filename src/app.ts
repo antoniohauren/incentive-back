@@ -1,8 +1,8 @@
-import { hello } from "@/handlers/hello-handler";
+import { helloRouter } from "@/routes";
 import { Hono } from "hono";
 
 const app = new Hono();
 
-app.get("/", hello);
+app.route("/", helloRouter);
 
 export default app;

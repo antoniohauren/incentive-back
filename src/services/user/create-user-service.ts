@@ -3,11 +3,12 @@ import {
   fetchUserByEmailRepository,
   fetchUserByUsernameRepository,
 } from "@/repositories";
-import { InsertUser } from "@/schemas";
+import { InsertUser, UserRequest } from "@/schemas";
+import { generateHash, generateSalt } from "@/utils/hash";
 import { ServiceReturn } from "@/utils/types";
 
 export async function createUserService(
-  data: InsertUser
+  data: UserRequest
 ): Promise<ServiceReturn> {
   let found;
 
@@ -23,7 +24,22 @@ export async function createUserService(
     return { success: false, message: "USERNAME_IN_USE" };
   }
 
-  const user = await createUserRepository(data);
+  const salt = generateSalt();
+  const password_hash = generateHash(data.password, salt);
+
+  const dto: InsertUser = {
+    username: data.username,
+    email: data.email,
+    name: data.name,
+    password_hash,
+    salt,
+  };
+
+  const user = await createUserRepository(dto);
+
+  if (!user.success) {
+    return { success: false, message: "FAILED_TO_CREATE_USER" };
+  }
 
   return { success: user.success, message: "USER_CREATED" };
 }

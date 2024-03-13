@@ -3,6 +3,8 @@ CREATE TABLE IF NOT EXISTS "user" (
 	"name" varchar(256) NOT NULL,
 	"username" varchar(256) NOT NULL,
 	"email" varchar(256) NOT NULL,
+	"password_hash" varchar(256) NOT NULL,
+	"salt" varchar(100) NOT NULL,
 	"created_at" timestamp DEFAULT now() NOT NULL,
 	"updated_at" timestamp DEFAULT now() NOT NULL,
 	CONSTRAINT "user_username_unique" UNIQUE("username"),

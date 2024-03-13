@@ -1,5 +1,5 @@
 {
-  "id": "cae48c18-af22-437a-bc31-49a505e06db9",
+  "id": "46e34ef0-ad1f-4c37-aa0e-1e3e9db1ad3c",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
@@ -30,6 +30,18 @@
         "email": {
           "name": "email",
           "type": "varchar(256)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "password_hash": {
+          "name": "password_hash",
+          "type": "varchar(256)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "salt": {
+          "name": "salt",
+          "type": "varchar(100)",
           "primaryKey": false,
           "notNull": true
         },

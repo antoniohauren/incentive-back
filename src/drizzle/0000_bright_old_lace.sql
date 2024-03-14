@@ -2,8 +2,8 @@ CREATE TABLE IF NOT EXISTS "balance" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"name" varchar(256) NOT NULL,
 	"description" varchar(256) NOT NULL,
-	"start_money" numeric NOT NULL,
-	"current_money" numeric NOT NULL,
+	"start_money" double precision NOT NULL,
+	"current_money" double precision NOT NULL,
 	"user_id" uuid NOT NULL,
 	"created_at" timestamp DEFAULT now() NOT NULL,
 	"updated_at" timestamp DEFAULT now() NOT NULL

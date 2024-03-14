@@ -1,5 +1,5 @@
 {
-  "id": "c004eefa-3b62-4d8f-a09d-b9693ae006cd",
+  "id": "f1a2396d-0070-4571-9e7b-718572303e6a",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
@@ -29,13 +29,13 @@
         },
         "start_money": {
           "name": "start_money",
-          "type": "numeric",
+          "type": "double precision",
           "primaryKey": false,
           "notNull": true
         },
         "current_money": {
           "name": "current_money",
-          "type": "numeric",
+          "type": "double precision",
           "primaryKey": false,
           "notNull": true
         },

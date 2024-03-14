@@ -8,6 +8,7 @@ import {
 } from "drizzle-orm/pg-core";
 import { createInsertSchema, createSelectSchema } from "drizzle-zod";
 import type { z } from "zod";
+import { payment } from "./payment-schema";
 import { user } from "./user-schema";
 
 export const balance = pgTable("balance", {
@@ -21,11 +22,12 @@ export const balance = pgTable("balance", {
   updated_at: timestamp("updated_at").defaultNow().notNull(),
 });
 
-export const balanceRelations = relations(balance, ({ one }) => ({
+export const balanceRelations = relations(balance, ({ one, many }) => ({
   user: one(user, {
     fields: [balance.userId],
     references: [user.id],
   }),
+  payments: many(payment),
 }));
 
 export const selectBalanceSchema = createSelectSchema(balance);

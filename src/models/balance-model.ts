@@ -11,3 +11,4 @@ export const balanceResponseSchema = selectBalanceSchema;
 
 export type BalanceRequest = z.infer<typeof balanceRequestSchema>;
 export type BalanceResponse = z.infer<typeof balanceResponseSchema>;
+export type BalanceListResponse = BalanceResponse[];

@@ -1,4 +1,8 @@
-import { createBalanceHandler } from "@/handlers/balance";
+import {
+  createBalanceHandler,
+  getBalanceHandler,
+  getBalanceListHandler,
+} from "@/handlers/balance";
 import { balanceRequestSchema } from "@/models/balance-model";
 import { validator } from "@/utils/schema-validator";
 import { Hono } from "hono";
@@ -10,5 +14,8 @@ balanceRouter.post(
   validator(balanceRequestSchema),
   createBalanceHandler,
 );
+
+balanceRouter.get("/:id", getBalanceHandler);
+balanceRouter.get("/", getBalanceListHandler);
 
 export { balanceRouter };

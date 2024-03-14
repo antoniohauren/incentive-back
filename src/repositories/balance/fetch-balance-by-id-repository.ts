@@ -1,11 +1,11 @@
 import { db } from "@/drizzle";
-import { balance, type SelectBalance } from "@/schemas";
+import { balance, type SelectBalanceWithPayments } from "@/schemas";
 import type { RepositoryRetrun } from "@/utils/types";
 import { eq } from "drizzle-orm";
 
 export async function fetchBalanceByIdRepository(
   id: string,
-): Promise<RepositoryRetrun<SelectBalance>> {
+): Promise<RepositoryRetrun<SelectBalanceWithPayments>> {
   try {
     const data = await db.query.balance.findMany({
       where: eq(balance.id, id),

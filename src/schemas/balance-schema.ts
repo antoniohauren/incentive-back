@@ -7,8 +7,8 @@ import {
   varchar,
 } from "drizzle-orm/pg-core";
 import { createInsertSchema, createSelectSchema } from "drizzle-zod";
-import type { z } from "zod";
-import { payment } from "./payment-schema";
+import { z } from "zod";
+import { payment, selectPaymentSchema } from "./payment-schema";
 import { user } from "./user-schema";
 
 export const balance = pgTable("balance", {
@@ -36,7 +36,13 @@ export const updateBalanceSchema = insertBalanceSchema.partial().pick({
   name: true,
   description: true,
 });
+export const selectBalanceWithPaymentsSchema = selectBalanceSchema.extend({
+  payments: z.array(selectPaymentSchema),
+});
 
 export type SelectBalance = z.infer<typeof selectBalanceSchema>;
 export type InsertBalance = z.infer<typeof insertBalanceSchema>;
 export type UpdateBalance = z.infer<typeof updateBalanceSchema>;
+export type SelectBalanceWithPayments = z.infer<
+  typeof selectBalanceWithPaymentsSchema
+>;

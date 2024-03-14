@@ -1,10 +1,10 @@
-import type { BalanceResponse } from "@/models/balance-model";
-import { fetchBalanceByIdRepository } from "@/repositories/balance/fetch-balance-by-id-repository";
+import { fetchBalanceByIdRepository } from "@/repositories/balance";
+import type { SelectBalanceWithPayments } from "@/schemas";
 import type { ServiceReturn } from "@/utils/types";
 
 export async function getBalanceService(
   id: string,
-): Promise<ServiceReturn<BalanceResponse>> {
+): Promise<ServiceReturn<SelectBalanceWithPayments>> {
   const found = await fetchBalanceByIdRepository(id);
 
   if (!found.success || !found.data) {

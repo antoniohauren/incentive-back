@@ -1,5 +1,5 @@
 import { db } from "@/drizzle";
-import { balance, type InsertBalance, type SelectBalance } from "@/schemas";
+import { type InsertBalance, type SelectBalance, balance } from "@/schemas";
 import type { RepositoryRetrun } from "@/utils/types";
 
 export async function createBalanceRepository(

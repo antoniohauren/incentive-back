@@ -1,5 +1,5 @@
 import { db } from "@/drizzle";
-import { balance, type SelectBalance } from "@/schemas";
+import { type SelectBalance, balance } from "@/schemas";
 import type { RepositoryRetrun } from "@/utils/types";
 import { eq } from "drizzle-orm";
 

@@ -1,5 +1,5 @@
 import type { PaymentRequest } from "@/models/payment-model";
-import { createPaymentService } from "@/services/payment/create-payment-service";
+import { createPaymentService } from "@/services/payment";
 import type { Handler } from "hono";
 
 export const createPaymentHandler: Handler = async (c) => {

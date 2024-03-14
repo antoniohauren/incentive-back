@@ -3,6 +3,7 @@ import "dotenv/config";
 import { authRouter, helloRouter, userRouter } from "@/routes";
 import { Hono } from "hono";
 import { jwt } from "hono/jwt";
+import { balanceRouter } from "./routes/balance-router";
 
 const app = new Hono();
 
@@ -16,5 +17,6 @@ app.use("/*", jwt({ secret }));
 
 // PRIVATE ROUTES
 app.route("/user", userRouter);
+app.route("/balance", balanceRouter);
 
 export default app;

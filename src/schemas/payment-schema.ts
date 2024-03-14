@@ -1,6 +1,6 @@
 import { relations } from "drizzle-orm";
 import {
-  numeric,
+  doublePrecision,
   pgTable,
   timestamp,
   uuid,
@@ -14,7 +14,7 @@ export const payment = pgTable("payment", {
   id: uuid("id").defaultRandom().notNull().primaryKey(),
   name: varchar("name", { length: 256 }).notNull(),
   description: varchar("description", { length: 256 }).notNull(),
-  value: numeric("value").notNull(),
+  value: doublePrecision("value").notNull(),
   balanceId: uuid("balance_id").notNull(),
   created_at: timestamp("created_at").defaultNow().notNull(),
   updated_at: timestamp("updated_at").defaultNow().notNull(),

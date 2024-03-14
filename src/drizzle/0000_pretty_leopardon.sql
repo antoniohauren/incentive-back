@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS "payment" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"name" varchar(256) NOT NULL,
 	"description" varchar(256) NOT NULL,
-	"value" numeric NOT NULL,
+	"value" double precision NOT NULL,
 	"balance_id" uuid NOT NULL,
 	"created_at" timestamp DEFAULT now() NOT NULL,
 	"updated_at" timestamp DEFAULT now() NOT NULL

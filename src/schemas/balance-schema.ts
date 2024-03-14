@@ -30,6 +30,11 @@ export const balanceRelations = relations(balance, ({ one }) => ({
 
 export const selectBalanceSchema = createSelectSchema(balance);
 export const insertBalanceSchema = createInsertSchema(balance);
+export const updateBalanceSchema = insertBalanceSchema.partial().pick({
+  name: true,
+  description: true,
+});
 
 export type SelectBalance = z.infer<typeof selectBalanceSchema>;
 export type InsertBalance = z.infer<typeof insertBalanceSchema>;
+export type UpdateBalance = z.infer<typeof updateBalanceSchema>;

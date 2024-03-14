@@ -41,5 +41,6 @@ export async function createUserService(
   if (!user.success || !user.data || !user.data.length) {
     return { success: false, message: "FAILED_TO_CREATE_USER" };
   }
+
   return { success: user.success, message: "USER_CREATED", data: user.data[0] };
 }

@@ -18,6 +18,7 @@ export async function deletePaymentRepository(
 
       await tx.update(balance).set({
         currentMoney: b.currentMoney + p.value,
+        updatedAt: new Date(),
       });
     });
 

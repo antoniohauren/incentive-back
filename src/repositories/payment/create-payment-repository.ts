@@ -17,6 +17,7 @@ export async function createPaymentRepository(
         .update(balance)
         .set({
           currentMoney: dto.value,
+          updatedAt: new Date(),
         })
         .where(eq(balance.id, dto.balanceId));
 

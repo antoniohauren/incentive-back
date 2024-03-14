@@ -10,7 +10,10 @@ export async function updateBalanceRepository(
   try {
     const data = await db
       .update(balance)
-      .set(dto)
+      .set({
+        ...dto,
+        updatedAt: new Date(),
+      })
       .where(eq(balance.id, id))
       .returning();
 

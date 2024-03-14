@@ -12,6 +12,7 @@ export async function updateBalanceMoneyRepository(
       .update(balance)
       .set({
         currentMoney: newValue,
+        updatedAt: new Date(),
       })
       .where(eq(balance.id, id))
       .returning();

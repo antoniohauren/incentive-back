@@ -26,13 +26,13 @@ export async function createUserService(
   }
 
   const salt = generateSalt();
-  const password_hash = generateHash(data.password, salt);
+  const passwordHash = generateHash(data.password, salt);
 
   const dto: InsertUser = {
     username: data.username,
     email: data.email,
     name: data.name,
-    password_hash,
+    passwordHash,
     salt,
   };
 

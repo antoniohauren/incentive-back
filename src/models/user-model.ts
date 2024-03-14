@@ -3,7 +3,7 @@ import { z } from "zod";
 
 export const userRequestSchema = insertUserSchema
   .omit({
-    password_hash: true,
+    passwordHash: true,
     salt: true,
   })
   .extend({
@@ -11,7 +11,7 @@ export const userRequestSchema = insertUserSchema
     email: z.string().email(),
   });
 export const userResponseSchema = selectUserSchema.omit({
-  password_hash: true,
+  passwordHash: true,
   salt: true,
 });
 

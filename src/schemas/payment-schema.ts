@@ -16,8 +16,8 @@ export const payment = pgTable("payment", {
   description: varchar("description", { length: 256 }).notNull(),
   value: doublePrecision("value").notNull(),
   balanceId: uuid("balance_id").notNull(),
-  created_at: timestamp("created_at").defaultNow().notNull(),
-  updated_at: timestamp("updated_at").defaultNow().notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().notNull(),
 });
 
 export const paymentRelations = relations(payment, ({ one }) => ({

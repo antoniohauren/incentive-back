@@ -18,8 +18,8 @@ export const balance = pgTable("balance", {
   startMoney: doublePrecision("start_money").notNull(),
   currentMoney: doublePrecision("current_money").notNull(),
   userId: uuid("user_id").notNull(),
-  created_at: timestamp("created_at").defaultNow().notNull(),
-  updated_at: timestamp("updated_at").defaultNow().notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().notNull(),
 });
 
 export const balanceRelations = relations(balance, ({ one, many }) => ({

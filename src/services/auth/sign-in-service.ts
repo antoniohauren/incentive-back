@@ -18,7 +18,7 @@ export async function signInService(
 
   const user = found.data[0];
 
-  const userPwHash = user.password_hash;
+  const userPwHash = user.passwordHash;
   const salt = user.salt;
 
   const pwHash = generateHash(data.password, salt);

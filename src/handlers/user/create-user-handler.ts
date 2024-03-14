@@ -2,7 +2,7 @@ import type { UserRequest } from "@/models";
 import { createUserService } from "@/services/user";
 import type { Handler } from "hono";
 
-const createUserHandler: Handler = async (c) => {
+export const createUserHandler: Handler = async (c) => {
   const body = await c.req.json<UserRequest>();
 
   const { success, message } = await createUserService(body);
@@ -13,5 +13,3 @@ const createUserHandler: Handler = async (c) => {
 
   return c.json({ success, message }, 400);
 };
-
-export { createUserHandler };

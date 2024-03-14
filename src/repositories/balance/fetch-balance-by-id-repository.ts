@@ -7,7 +7,11 @@ export async function fetchBalanceByIdRepository(
   id: string,
 ): Promise<RepositoryRetrun<SelectBalance>> {
   try {
-    const data = await db.select().from(balance).where(eq(balance.id, id));
+    const data = await db
+      .select()
+      .from(balance)
+      // .leftJoin(payment, eq(balance.id, payment.balanceId))
+      .where(eq(balance.id, id));
 
     if (!data || data.length < 1) {
       return {

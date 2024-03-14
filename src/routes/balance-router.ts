@@ -4,6 +4,7 @@ import {
   getBalanceListHandler,
   updateBalanceHandler,
 } from "@/handlers/balance";
+import { deleteBalanceHandler } from "@/handlers/balance/delete-balance-handler";
 import {
   balanceRequestSchema,
   balanceUpdateSchema,
@@ -26,5 +27,6 @@ balanceRouter.patch(
   validator(balanceUpdateSchema),
   updateBalanceHandler,
 );
+balanceRouter.delete("/:id", deleteBalanceHandler);
 
 export { balanceRouter };

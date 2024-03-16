@@ -1,5 +1,5 @@
 import { db } from "@/drizzle";
-import { type SelectBalance, balance } from "@/schemas";
+import { balance, type SelectBalance } from "@/schemas";
 import type { RepositoryRetrun } from "@/utils/types";
 
 export async function fetchBalanceListRepository(): Promise<
@@ -8,10 +8,8 @@ export async function fetchBalanceListRepository(): Promise<
   try {
     const data = await db.select().from(balance);
 
-    const success = data.length > 0;
-
     return {
-      success,
+      success: true,
       data,
     };
   } catch (err) {

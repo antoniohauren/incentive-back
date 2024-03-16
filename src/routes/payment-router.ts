@@ -1,4 +1,7 @@
-import { deletePaymentHandler } from "@/handlers/payment";
+import {
+  deletePaymentHandler,
+  getPaymentListHandler,
+} from "@/handlers/payment";
 import { createPaymentHandler } from "@/handlers/payment/create-payment-handler";
 import { paymentRequestSchema } from "@/models/payment-model";
 import { validator } from "@/utils/schema-validator";
@@ -11,6 +14,7 @@ paymentRouter.post(
   validator(paymentRequestSchema),
   createPaymentHandler,
 );
+paymentRouter.get("/", getPaymentListHandler);
 paymentRouter.delete("/:id", deletePaymentHandler);
 
 export { paymentRouter };

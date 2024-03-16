@@ -1,4 +1,4 @@
-import { insertPaymentSchema } from "@/schemas";
+import { insertPaymentSchema, selectPaymentSchema } from "@/schemas";
 import type { z } from "zod";
 
 export const paymentRequestSchema = insertPaymentSchema.pick({
@@ -8,4 +8,8 @@ export const paymentRequestSchema = insertPaymentSchema.pick({
   value: true,
 });
 
+export const paymentResponseSchema = selectPaymentSchema;
+
 export type PaymentRequest = z.infer<typeof paymentRequestSchema>;
+export type PaymentResponse = z.infer<typeof paymentResponseSchema>;
+export type PaymentListResponse = PaymentResponse[];

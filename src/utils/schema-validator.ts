@@ -6,7 +6,7 @@ export function validator<T extends ZodType<unknown, ZodTypeDef, unknown>>(
 ) {
   return zValidator("json", schema, (result, ctx) => {
     if (!result.success) {
-      return ctx.json(result.error.flatten().fieldErrors);
+      return ctx.json(result.error.flatten().fieldErrors, 400);
     }
   });
 }

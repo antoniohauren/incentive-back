@@ -32,9 +32,7 @@ export async function createPaymentService(
     };
   }
 
-  dto.value = currentMoney - dto.value;
-
-  const payment = await createPaymentRepository(dto);
+  const payment = await createPaymentRepository(dto, currentMoney - dto.value);
 
   if (!payment.success) {
     return { success: false };

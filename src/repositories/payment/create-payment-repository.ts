@@ -1,22 +1,23 @@
 import { db } from "@/drizzle";
 import {
-  type InsertPayment,
-  type SelectPayment,
   balance,
   payment,
+  type InsertPayment,
+  type SelectPayment,
 } from "@/schemas";
 import type { RepositoryRetrun } from "@/utils/types";
 import { eq } from "drizzle-orm";
 
 export async function createPaymentRepository(
   dto: InsertPayment,
+  newBalance: number,
 ): Promise<RepositoryRetrun<SelectPayment>> {
   try {
     await db.transaction(async (tx) => {
       await tx
         .update(balance)
         .set({
-          currentMoney: dto.value,
+          currentMoney: newBalance,
           updatedAt: new Date(),
         })
         .where(eq(balance.id, dto.balanceId));

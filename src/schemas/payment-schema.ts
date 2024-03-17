@@ -29,6 +29,11 @@ export const paymentRelations = relations(payment, ({ one }) => ({
 
 export const selectPaymentSchema = createSelectSchema(payment);
 export const insertPaymentSchema = createInsertSchema(payment);
+export const updatePaymentSchema = insertPaymentSchema.partial().pick({
+  name: true,
+  description: true,
+});
 
 export type SelectPayment = z.infer<typeof selectPaymentSchema>;
 export type InsertPayment = z.infer<typeof insertPaymentSchema>;
+export type UpdatePayment = z.infer<typeof updatePaymentSchema>;

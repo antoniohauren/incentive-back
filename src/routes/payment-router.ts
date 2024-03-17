@@ -3,7 +3,11 @@ import {
   getPaymentListHandler,
 } from "@/handlers/payment";
 import { createPaymentHandler } from "@/handlers/payment/create-payment-handler";
-import { paymentRequestSchema } from "@/models/payment-model";
+import { updatePaymentHandler } from "@/handlers/payment/update-payment-handler";
+import {
+  paymentRequestSchema,
+  paymentUpdateSchema,
+} from "@/models/payment-model";
 import { validator } from "@/utils/schema-validator";
 import { Hono } from "hono";
 
@@ -15,6 +19,11 @@ paymentRouter.post(
   createPaymentHandler,
 );
 paymentRouter.get("/", getPaymentListHandler);
+paymentRouter.patch(
+  "/:id",
+  validator(paymentUpdateSchema),
+  updatePaymentHandler,
+);
 paymentRouter.delete("/:id", deletePaymentHandler);
 
 export { paymentRouter };

@@ -3,6 +3,7 @@ import {
   getPaymentListHandler,
 } from "@/handlers/payment";
 import { createPaymentHandler } from "@/handlers/payment/create-payment-handler";
+import { getPaymentHandler } from "@/handlers/payment/get-payment-handler";
 import { updatePaymentHandler } from "@/handlers/payment/update-payment-handler";
 import {
   paymentRequestSchema,
@@ -18,6 +19,7 @@ paymentRouter.post(
   validator(paymentRequestSchema),
   createPaymentHandler,
 );
+paymentRouter.get("/:id", getPaymentHandler);
 paymentRouter.get("/", getPaymentListHandler);
 paymentRouter.patch(
   "/:id",

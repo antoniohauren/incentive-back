@@ -1,12 +1,15 @@
 import { insertPaymentSchema, selectPaymentSchema } from "@/schemas";
-import type { z } from "zod";
+import { z } from "zod";
 
-export const paymentRequestSchema = insertPaymentSchema.pick({
-  name: true,
-  description: true,
-  balanceId: true,
-  value: true,
-});
+export const paymentRequestSchema = insertPaymentSchema
+  .pick({
+    name: true,
+    description: true,
+    balanceId: true,
+  })
+  .extend({
+    value: z.number().positive(),
+  });
 
 export const paymentResponseSchema = selectPaymentSchema;
 

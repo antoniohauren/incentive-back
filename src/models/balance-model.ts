@@ -1,11 +1,14 @@
 import { insertBalanceSchema, selectBalanceSchema } from "@/schemas";
-import type { z } from "zod";
+import { z } from "zod";
 
-export const balanceRequestSchema = insertBalanceSchema.pick({
-  name: true,
-  startMoney: true,
-  description: true,
-});
+export const balanceRequestSchema = insertBalanceSchema
+  .pick({
+    name: true,
+    description: true,
+  })
+  .extend({
+    startMoney: z.number().positive(),
+  });
 
 export const balanceResponseSchema = selectBalanceSchema;
 

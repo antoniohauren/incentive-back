@@ -54,6 +54,13 @@ docker-compose up
 
 Este comando inicia os contêineres conforme definido no arquivo `docker-compose.yml`, garantindo a consistência do ambiente de desenvolvimento. Certifique-se de ter o Docker e o Docker Compose instalados em sua máquina antes de executar este comando.
 
+## Tecnologias
+- [Nodejs](https://nodejs.org/) v20.11.1
+- [Hono](https://hono.dev/) v4.1.0
+- [Drizzle](https://orm.drizzle.team/) v0.30.1
+- [Zod](https://zod.dev/) v3.22.4
+- [Typescript](https://www.typescriptlang.org/) v5.4.2
+
 ## Preview
 
 [preview.webm](https://github.com/antoniohauren/incentive-front/assets/101012531/ebbe2159-76da-4e6e-99fb-4ebda3eee7c4)
